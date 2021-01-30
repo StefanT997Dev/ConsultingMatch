@@ -9,6 +9,6 @@ namespace ConsultingMatch.Models
 	{
 		public byte Id { get; set; }
 		public double ServiceFee { get; set; }
-		public int ServiceName { get; set; }
+		public string ServiceName { get; set; }
 	}
 }

@@ -1,0 +1,101 @@
+.HeaderComponent{
+  display: grid;
+  justify-content: center;
+}
+
+.welcome{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    gap: 4px;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3,1fr);
+}
+
+.positioning{
+  margin-left: 18%;
+  margin-bottom: 10%;
+}
+
+h6{
+    margin-top:12%;
+    animation-name:moveInLeft;
+    animation-duration: 3s;
+    margin-left: 10%;
+}
+h1{
+  margin-left: 10%;
+}
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+.headline{
+  align-items: center;
+}
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveInLeft {
+      0% {
+        opacity: 0;
+        transform:translateX(-100px);
+      }
+
+      80%{
+        transform:translateX(10px);
+      }
+
+      100%{
+        opacity: 1;
+        trasform: translate(0);
+      }
+  }
+
+  button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #5dbdf5;
+    padding: 20px;
+    border-radius: 5px;
+    display: block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 300px;
+    height: 100px;
+    }
+   button:hover {
+        background: #434343;
+        letter-spacing: 1px;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
+  }
+
+  .centerVideo{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 10%;
+  }
+
+  video{
+    border: none;
+  }
+
