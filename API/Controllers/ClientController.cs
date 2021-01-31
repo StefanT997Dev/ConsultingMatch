@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Clients;
 using ConsultingMatch.DataLayer;
 using ConsultingMatch.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,39 +15,29 @@ namespace DatingApp.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private DeveloperDbContext _context;
-        public ClientController(DeveloperDbContext context)
+        private readonly IMediator _mediator;
+        public ClientController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
-   
+        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Client>>> Get()
+        public async Task<ActionResult<List<Client>>> Get()
         {
-            var clients = await _context.Clients.ToListAsync();
-            return Ok(clients);
+            return await _mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> Get(int id)
+        public async Task<ActionResult<Client>> Details(int id)
         {
-            var value = await _context.Clients.FindAsync(id);
-            return Ok(value);
+            return await _mediator.Send(new Details.Query{Id=id});
         }
 
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("country/{id}")]
+        public async Task<ActionResult<List<Client>>> GetFromCountry(int id)
         {
+            return await _mediator.Send(new Usa.Query(){CountryId=id});
         }
-
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
