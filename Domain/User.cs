@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace ConsultingMatch.Models
 {
@@ -18,5 +19,6 @@ namespace ConsultingMatch.Models
 		public string Surname { get => surname; set => surname = value; }
 		public string Email { get => email; set => email = value; }
 		public Country Country { get => country; set => country = value; }
+		public string Password { get; set; }
 	}
 }

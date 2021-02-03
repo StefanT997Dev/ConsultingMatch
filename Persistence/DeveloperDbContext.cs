@@ -15,5 +15,6 @@ namespace ConsultingMatch.DataLayer
 		}
 		public DbSet<Client> Clients { get; set; }
 		public DbSet<Consultant> Consultants { get; set; }
+		public DbSet<ConsultingCategory> ConsultingCategory { get; set; }
 	}
 }

@@ -39,5 +39,11 @@ namespace DatingApp.API.Controllers
             return await _mediator.Send(new Usa.Query(){CountryId=id});
         }
         
+        [HttpPost]
+        public async Task<ActionResult<Unit>> Create(Client client)
+        {
+            return await _mediator.Send(new Create.Command(){Name=client.Name});
+        }
+
     }
 }
